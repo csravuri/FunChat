@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FunChat.Views.LockCreationPage">
+    <StackLayout BackgroundColor="#7eeed9">
+        <Label Text="Create PIN for next Login"/>
+        <Entry Text="{Binding PIN}" Keyboard="Numeric" IsPassword="True" Completed="PIN_Entered" HorizontalOptions="FillAndExpand"/>
+
+        <Button Text="SKIP" Clicked="Skip_Clicked"/>
+    </StackLayout>
+</ContentPage>
