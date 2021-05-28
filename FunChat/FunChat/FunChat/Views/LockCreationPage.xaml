@@ -1,11 +1,49 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FunChat.Views.LockCreationPage">
-    <StackLayout BackgroundColor="#7eeed9">
-        <Label Text="Create PIN for next Login"/>
-        <Entry Text="{Binding PIN}" Keyboard="Numeric" IsPassword="True" Completed="PIN_Entered" HorizontalOptions="FillAndExpand"/>
+             x:Class="FunChat.Views.LockCreationPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout BackgroundColor="#f1cffa" 
+                 Spacing="0" 
+                 Padding="10, 5, 10, 30">
+        <Button Text="Skip >>" Clicked="Skip_Clicked" HorizontalOptions="End" FontSize="20" TextColor="#ff198c" FontAttributes="Bold" BackgroundColor="Transparent"/>
+        <Label Text="Create PIN for next Login" FontSize="30"/>
+                
+        <Entry Text="{Binding PINCreate}" 
+               Margin="0, 20, 0, 0"
+               MaxLength="4"
+               Placeholder="----"
+               FontSize="30"
+               CharacterSpacing="5"
+               WidthRequest="120"
+               Keyboard="Numeric" 
+               ReturnType="Next" 
+               IsPassword="True" 
+               HorizontalOptions="Center"/>
+        <Label Text="Create PIN" VerticalTextAlignment="Start" HorizontalOptions="Center"/>
 
-        <Button Text="SKIP" Clicked="Skip_Clicked"/>
+        <Entry Text="{Binding PINConfirm}" 
+               Margin="0, 20, 0, 0"
+               MaxLength="4"
+               Placeholder="----" 
+               FontSize="30"
+               CharacterSpacing="5"
+               WidthRequest="120"
+               Keyboard="Numeric" 
+               ReturnType="Done" 
+               HorizontalOptions="Center"/>
+        <Label Text="Confirm PIN" VerticalTextAlignment="Start" HorizontalOptions="Center"/>
+
+
+        <Button Text="Continue" 
+                VerticalOptions="EndAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                Padding="20, 10" 
+                WidthRequest="250" 
+                HeightRequest="50"
+                CornerRadius="20"
+                TextColor="#f5f51d"
+                BackgroundColor="#8ebd9b" Command="{Binding PINEnteredCommand}"/>
     </StackLayout>
 </ContentPage>

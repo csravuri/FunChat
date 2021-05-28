@@ -10,13 +10,13 @@ namespace FunChat.Models
 {
     public class LoadingViewModel : BaseViewModel
     {
-        public ICommand LoadLoadingViewModel { get; private set; }
+        public ICommand LoadLoadingViewModelCommand { get; private set; }
         public LoadingViewModel(INavigation navigation) : base(navigation)
         {
-            LoadLoadingViewModel = new Command(async () => await ExecuteLoadLoadingViewModel());
+            LoadLoadingViewModelCommand = new Command(async () => await ExecuteLoadLoadingViewModelCommand());
         }
 
-        private async Task ExecuteLoadLoadingViewModel()
+        private async Task ExecuteLoadLoadingViewModelCommand()
         {
             // there should be logic to decide which page to call 
             // for now registration 

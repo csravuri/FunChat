@@ -10,7 +10,8 @@ namespace FunChat.Models
 {
     class LockCreationViewModel : BaseViewModel
     {
-        public string PIN { get; set; }
+        public string PINCreate { get; set; }
+        public string PINConfirm { get; set; }
         public ICommand PINEnteredCommand { get; private set; }
         public ICommand PINSkipedCommand { get; private set; }
         public LockCreationViewModel(INavigation navigation) : base(navigation)
@@ -29,13 +30,20 @@ namespace FunChat.Models
             if (IsPINValid())
             {
                 await Navigation.PushAsync(new PersonalDetailsPage());
-                //APP.PIN = PIN;
+                APP.PIN = PINCreate;
             }
         }
 
         private bool IsPINValid()
         {
-            return true;
+            if (!string.IsNullOrWhiteSpace(PINCreate) && PINCreate.Length == 4 && PINCreate == PINConfirm)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

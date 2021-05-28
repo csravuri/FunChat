@@ -23,7 +23,7 @@ namespace FunChat.Views
             base.OnAppearing();
 
             LoadingViewModel viewModel = new LoadingViewModel(this.Navigation);
-            viewModel.LoadLoadingViewModel.Execute(null);
+            viewModel.LoadLoadingViewModelCommand.Execute(null);
         }
     }
 }

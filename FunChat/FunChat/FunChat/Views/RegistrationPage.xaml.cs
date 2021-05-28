@@ -21,9 +21,11 @@ namespace FunChat.Views
             BindingContext = viewModel = new RegistrationViewModel(this.Navigation);
         }
 
-        private void PhoneNo_Entered(object sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            viewModel.PhoneNoEnteredCommand.Execute(null);
+            base.OnAppearing();
+
+            viewModel.LoadRegistrationCommand.Execute(null);
         }
     }
 }

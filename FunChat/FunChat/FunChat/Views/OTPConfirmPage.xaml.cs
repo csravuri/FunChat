@@ -14,10 +14,10 @@ namespace FunChat.Views
     public partial class OTPConfirmPage : ContentPage
     {
         OTPConfirmViewModel viewModel;
-        public OTPConfirmPage()
+        public OTPConfirmPage(OTPConfirmViewModel viewModel)
         {
             InitializeComponent();
-            BindingContext = viewModel = new OTPConfirmViewModel(this.Navigation);
+            BindingContext = this.viewModel = viewModel;
         }
 
         private void OTP_Entered(object sender, EventArgs e)

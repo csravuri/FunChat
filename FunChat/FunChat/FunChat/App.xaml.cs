@@ -8,8 +8,11 @@ namespace FunChat
     public partial class App : Application
     {
         private string PhoneNoKey = "PhoneNo";
+        private string CountryCodeKey = "CountryCode";
         private string NameKey = "Name";
         private string DOBKey = "DOB";
+        private string PINKey = "PIN";
+
 
         public string PhoneNo
         {
@@ -31,6 +34,30 @@ namespace FunChat
                 else
                 {
                     Current.Properties.Add(PhoneNoKey, value);
+                }
+            }
+        }
+
+        public string CountryCode
+        {
+            get
+            {
+                if (!Current.Properties.TryGetValue(CountryCodeKey, out object CountryCode))
+                {
+                    CountryCode = null;
+                }
+
+                return CountryCode as string;
+            }
+            set
+            {
+                if (Current.Properties.ContainsKey(CountryCodeKey))
+                {
+                    Current.Properties[CountryCodeKey] = value;
+                }
+                else
+                {
+                    Current.Properties.Add(CountryCodeKey, value);
                 }
             }
         }
@@ -83,11 +110,36 @@ namespace FunChat
             }
         }
 
+        public string PIN
+        {
+            get
+            {
+                if (!Current.Properties.TryGetValue(PINKey, out object pIN))
+                {
+                    pIN = null;
+                }
+
+                return pIN as string;
+            }
+            set
+            {
+                if (Current.Properties.ContainsKey(PINKey))
+                {
+                    Current.Properties[PINKey] = value;
+                }
+                else
+                {
+                    Current.Properties.Add(PINKey, value);
+                }
+            }
+        }
+
+
         public App()
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new LoadingPage());
+            MainPage = new NavigationPage(new WelcomePage());
         }
 
         protected override void OnStart()

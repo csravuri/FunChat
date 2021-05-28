@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FunChat.Views.RegistrationPage"
+             x:Class="FunChat.Views.WelcomePage"
              NavigationPage.HasNavigationBar="False"
              NavigationPage.HasBackButton="False">
     <StackLayout BackgroundColor="#f1cffa" 
                  Spacing="0" 
                  Padding="10, 30">
-        <Label Text="Enter Phone No!" 
+        <Label Text="Hello, Welcome!" 
                FontSize="40" 
                HorizontalOptions="Center"/>
         <ImageButton Source="main_logo.png" 
@@ -15,30 +15,14 @@
                      VerticalOptions="CenterAndExpand"
                      CornerRadius="1000" 
                      BackgroundColor="Transparent"/>
-        <StackLayout Orientation="Horizontal"
-                     VerticalOptions="Start"
-                     Margin="0"
-                     Padding="10, 0"
-                     Spacing="5">
-            <Label Text="+" 
-                   FontSize="20"
-                   VerticalTextAlignment="Center"/>
-            <Entry Text="{Binding CountryCode}"
-                   Keyboard="Telephone"
-                   WidthRequest="50"
-                   ReturnType="Next" 
-                   TabIndex="1"
-                   HorizontalTextAlignment="Center"/>
-            
-            <Entry Text="{Binding PhoneNo}" 
-                   Keyboard="Telephone" 
-                   ReturnType="Done" 
-                   Placeholder="Phone No" 
-                   HorizontalOptions="FillAndExpand"
-                   TabIndex="2"/>
-
-        </StackLayout>
-
+        <ImageButton Source="main_title.png"
+                     HorizontalOptions="Center" 
+                     VerticalOptions="CenterAndExpand"
+                     CornerRadius="70"
+                     HeightRequest="120"
+                     BackgroundColor="Transparent"/>
+        <Label Text="By clicking on continue you agreed to all Terms." VerticalOptions="EndAndExpand" FontSize="15" HorizontalOptions="Center"/>
+        <Label Text="This App made by csravuri team." VerticalOptions="EndAndExpand" FontSize="20" HorizontalOptions="Center" FontAttributes="Bold"/>
         <Button Text="Continue" 
                 VerticalOptions="EndAndExpand" 
                 HorizontalOptions="CenterAndExpand" 

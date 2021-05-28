@@ -1,10 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="FunChat.Views.PersonalDetailsPage">
-    <StackLayout>
-        <Entry Text="{Binding Name}" Placeholder="Name" Keyboard="Chat"/>
-        <DatePicker />
-        <Button Text="Save" Clicked="Save_Clicked"/>
+             x:Class="FunChat.Views.PersonalDetailsPage"
+             NavigationPage.HasNavigationBar="False"
+             NavigationPage.HasBackButton="False">
+    <StackLayout BackgroundColor="#f1cffa" 
+                 Spacing="0" 
+                 Padding="10, 30">
+
+        <ImageButton Source="{Binding Image, TargetNullValue='icons8_add_image_80.png'}" 
+                     HorizontalOptions="Center" 
+                     CornerRadius="2000" 
+                     WidthRequest="120"
+                     HeightRequest="120"
+                     Command="{Binding SelectImageCommand}"/>
+        <Entry Text="{Binding Name}" Placeholder="Your Name" Keyboard="Chat"/>
+        <Entry Text="{Binding DOB}" Placeholder="DD/MM/YYYY"/>
+
+        <Button Text="Continue" 
+                VerticalOptions="EndAndExpand" 
+                HorizontalOptions="CenterAndExpand" 
+                Padding="20, 10" 
+                WidthRequest="250" 
+                HeightRequest="50"
+                CornerRadius="20"
+                TextColor="#f5f51d"
+                BackgroundColor="#8ebd9b" Command="{Binding SaveDetailsCommand}"/>
+        
     </StackLayout>
 </ContentPage>

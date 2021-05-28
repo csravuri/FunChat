@@ -4,21 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
+
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace FunChat.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PersonalDetailsPage : ContentPage
+    public partial class WelcomePage : ContentPage
     {
-        PersonalDetailsViewModel viewModel;
-        public PersonalDetailsPage()
+        public WelcomePage()
         {
             InitializeComponent();
-            BindingContext = viewModel = new PersonalDetailsViewModel(this.Navigation);
-        }
-       
+
+            BindingContext = new WelcomeViewModel(this.Navigation);
+        }        
     }
 }
